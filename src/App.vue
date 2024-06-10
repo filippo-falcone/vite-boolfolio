@@ -1,11 +1,18 @@
 <script>
-export default {}
+import AppHeader from './components/AppHeader.vue';
+
+export default {
+  components: {
+    AppHeader
+  }
+}
 </script>
 
 <template>
-  <div class="container text-center">
-    <h1>Home</h1>
-  </div>
+  <AppHeader></AppHeader>
+  <main>
+
+  </main>
 </template>
 
 <style lang="scss">
