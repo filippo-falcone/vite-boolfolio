@@ -13,7 +13,7 @@ export default {
 <template>
   <AppHeader></AppHeader>
   <main>
-    <ProjectList></ProjectList>
+    <router-view></router-view>
   </main>
 </template>
 
