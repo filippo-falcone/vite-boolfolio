@@ -3,9 +3,9 @@ export default {}
 </script>
 
 <template>
-    <section>
+    <section class="py-4">
         <div class="container">
-            <h1>ciao</h1>
+            <h1 class="text-center">Welcome to the Home Page</h1>
         </div>
     </section>
 </template>
