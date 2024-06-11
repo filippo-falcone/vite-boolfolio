@@ -18,10 +18,10 @@ export default {}
                             <router-link class="nav-link active" aria-current="page"
                                 :to="{ name: 'home' }">Home</router-link>
                         </li>
-                        <!-- <li class="nav-item">
+                        <li class="nav-item">
                             <router-link class="nav-link active" aria-current="page"
-                                :to="{ name: '' }">Projects</router-link>
-                        </li> -->
+                                :to="{ name: 'projects' }">Projects</router-link>
+                        </li>
                     </ul>
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
