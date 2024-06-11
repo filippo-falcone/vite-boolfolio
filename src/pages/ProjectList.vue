@@ -44,7 +44,7 @@ export default {
 <template>
     <section class="py-4">
         <div class="container">
-            <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div class="row row-cols-1 row-cols-md-2 justify-content-center g-4">
                 <ProjectCard v-for="project in projects" :projectInfo="project" :key="project.id"></ProjectCard>
             </div>
             <div class="my-3">
