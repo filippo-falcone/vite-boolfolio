@@ -1,9 +1,13 @@
 <script>
 import { routeLocationKey } from 'vue-router';
+import { store } from '../store';
 
 export default {
     props: {
         projectInfo: Object
+    },
+    data() {
+        store
     },
     methods: {
         truncateText(text) {
@@ -13,7 +17,7 @@ export default {
             return text;
         },
         printImage(imageUrl) {
-            return `http://192.168.1.155:8000/storage/${imageUrl}`;
+            return `${store.apiBaseUrl}/storage/${imageUrl}`;
         }
     }
 }

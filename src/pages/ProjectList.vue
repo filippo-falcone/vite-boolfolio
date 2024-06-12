@@ -2,6 +2,7 @@
 import axios from 'axios';
 import ProjectCard from '../components/ProjectCard.vue';
 import Loader from '../components/Loader.vue';
+import { store } from '../store';
 
 export default {
     components: {
@@ -10,7 +11,7 @@ export default {
     },
     data() {
         return {
-            loading: false,
+            store,
             currentPage: 1,
             prevPageUrl: null,
             nextPageUrl: null,
@@ -21,8 +22,8 @@ export default {
     },
     methods: {
         getProjects(pageNumber) {
-            this.loading = true;
-            axios.get('http://192.168.1.155:8000/api/projects', {
+            store.loading = true;
+            axios.get(`${this.store.apiBaseUrl}/api/projects`, {
                 params: {
                     page: pageNumber
                 }
@@ -33,7 +34,7 @@ export default {
                     this.prevPageUrl = response.data.results.prev_page_url;
                     this.nextPageUrl = response.data.results.next_page_url;
                     this.pages = response.data.results.last_page;
-                    this.loading = false;
+                    store.loading = false;
                 });
         },
         activePage(index) {
@@ -49,7 +50,7 @@ export default {
 <template>
     <section class="py-4">
         <div class="container">
-            <div v-if="!loading" class="row row-cols-1 row-cols-md-2 justify-content-center g-4">
+            <div v-if="!store.loading" class="row row-cols-1 row-cols-md-2 justify-content-center g-4">
                 <ProjectCard v-for="project in projects" :projectInfo="project" :key="project.id">
                 </ProjectCard>
             </div>

@@ -2,6 +2,7 @@
 import axios from 'axios';
 import ProjectCard from '../components/ProjectCard.vue';
 import Loader from '../components/Loader.vue';
+import { store } from '../store';
 
 export default {
     components: {
@@ -10,21 +11,21 @@ export default {
     },
     data() {
         return {
-            loading: false,
+            store,
             project: null
         };
     },
     methods: {
         getProject() {
-            this.loading = true;
-            axios.get(`http://192.168.1.155:8000/api/projects/${this.$route.params.slug}`)
+            store.loading = true;
+            axios.get(`${store.apiBaseUrl}/api/projects/${this.$route.params.slug}`)
                 .then((response) => {
                     if (response.data.success) {
                         this.project = response.data.project;
                     } else {
                         this.$router.push({ name: 'not-found' });
                     }
-                    this.loading = false;
+                    store.loading = false;
                 });
         }
     },
