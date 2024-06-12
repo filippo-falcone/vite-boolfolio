@@ -29,6 +29,11 @@ export default {
     <section class="py-4">
         <div class="container">
             <ProjectCard v-if="project" :projectInfo="project"></ProjectCard>
+            <div v-else class="d-flex flex-column align-items-center justify-content-center">
+                <h1>Project not found</h1>
+                <div class="mb-2">Return to</div>
+                <router-link class="btn btn-primary" :to="{ name: 'projects' }" role="button">Projects</router-link>
+            </div>
         </div>
     </section>
 </template>
