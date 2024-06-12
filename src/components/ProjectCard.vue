@@ -1,4 +1,6 @@
 <script>
+import { routeLocationKey } from 'vue-router';
+
 export default {
     props: {
         projectInfo: Object
@@ -35,9 +37,10 @@ export default {
                 </div>
                 <p v-else class="card-text">No technologies</p>
                 <p v-if="projectInfo.summary" class="card-text">{{ truncateText(projectInfo.summary) }}</p>
-                <router-link class="btn btn-primary"
-                    :to="{ name: 'single-project', params: { slug: projectInfo.slug } }" role="button">Read
-                    more</router-link>
+                <router-link v-if="$route.name === 'projects'" class="btn btn-primary"
+                    :to="{ name: 'single-project', params: { slug: projectInfo.slug } }" role="button">
+                    Read more
+                </router-link>
             </div>
         </div>
     </div>
