@@ -7,7 +7,9 @@ export default {
         projectInfo: Object
     },
     data() {
-        store
+        return {
+            store
+        }
     },
     methods: {
         truncateText(text) {

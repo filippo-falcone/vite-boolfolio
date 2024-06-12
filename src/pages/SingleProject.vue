@@ -38,7 +38,7 @@ export default {
 <template>
     <section class="py-4">
         <div class="container">
-            <ProjectCard v-if="project && !loading" :projectInfo="project"></ProjectCard>
+            <ProjectCard v-if="project && !store.loading" :projectInfo="project"></ProjectCard>
             <Loader v-else></Loader>
         </div>
     </section>
